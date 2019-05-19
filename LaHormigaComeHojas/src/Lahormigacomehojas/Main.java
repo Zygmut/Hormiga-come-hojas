@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Clase Principal del programa
  */
 package Lahormigacomehojas;
 
@@ -50,7 +48,7 @@ public class Main extends JFrame implements KeyListener {
         /**
          * Controlador del espacio
          */
-        if (e.getKeyCode() == 32) { 
+        if (e.getKeyCode() == 32) {
             /**
              * Algoritmo para conocer la posicion de la hormiga dentro de la
              * matriz
@@ -66,7 +64,7 @@ public class Main extends JFrame implements KeyListener {
                 }
             }
             /**
-             *
+             * Split que permite conocer la orientacion de la hormiga
              */
             String orientation = board.cBoard[xpos][ypos].piece.getId().split("_")[1];
             /**
@@ -150,24 +148,24 @@ public class Main extends JFrame implements KeyListener {
                 }
                 board.repaint();
             }
-            /**
-             * Win condition
-             */
-            boolean found = false;
-            for (int i = 0; i < Board.Dim && !found; i++) {
-                for (int j = 0; j < Board.Dim && !found; j++) {
-                    found = board.cBoard[i][j].piece.getId().contains("hoja");
-                }
+        }
+        /**
+         * Win condition
+         */
+        boolean found = false;
+        for (int i = 0; i < Board.Dim && !found; i++) {
+            for (int j = 0; j < Board.Dim && !found; j++) {
+                found = board.cBoard[i][j].piece.getId().contains("hoja");
             }
-            if (!found) {
-                Toolkit.getDefaultToolkit().beep();
-                JOptionPane.showMessageDialog(null, "ENHORABUENA" + "\n"
-                        + "¡Has completado el juego!" + "\n"
-                        + "La hormiga se ha comido todas las hojas",
-                        "¡Has ganado!", JOptionPane.INFORMATION_MESSAGE);
-                if (JOptionPane.INFORMATION_MESSAGE == 1) {
-                    System.exit(0);
-                }
+        }
+        if (!found) {
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(null, "ENHORABUENA" + "\n"
+                    + "¡Has completado el juego!" + "\n"
+                    + "La hormiga se ha comido todas las hojas",
+                    "¡Has ganado!", JOptionPane.INFORMATION_MESSAGE);
+            if (JOptionPane.INFORMATION_MESSAGE == 1) {
+                System.exit(0);
             }
         }
     }

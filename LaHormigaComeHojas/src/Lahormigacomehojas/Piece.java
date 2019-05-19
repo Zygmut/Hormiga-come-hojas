@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Clase Pieza
  */
 package Lahormigacomehojas;
 
@@ -18,12 +16,12 @@ import javax.imageio.ImageIO;
 
 public class Piece {
 
-    public static final String hormigaN = "peces/hormiga_n.png";
-    public static final String hormigaS = "peces/hormiga_s.png";
-    public static final String hormigaE = "peces/hormiga_e.png";
-    public static final String hormigaO = "peces/hormiga_o.png";
-    public static final String hoja = "peces/hoja.png";
-    public static final String nada = "peces/nada.png";
+    public static final String hormigaN = "sprite/hormiga_n.png";
+    public static final String hormigaS = "sprite/hormiga_s.png";
+    public static final String hormigaE = "sprite/hormiga_e.png";
+    public static final String hormigaO = "sprite/hormiga_o.png";
+    public static final String hoja = "sprite/hoja.png";
+    public static final String nada = "sprite/nada.png";
 
     public BufferedImage img;
     private String id;
@@ -31,13 +29,11 @@ public class Piece {
     public Piece(String s) {
         /**
          * Corta el string por "/", coge la segunda parte y la corta por el
-         * punto y devuelve la primera parte. En el caso de peces /
-         * hormiga_n.png lo que haria seria separar peces y luego separar.png ,
-         * de esta manera solo obtenemos el nombre del archivo
+         * punto y devuelve la primera parte. En el caso de sprite/hormiga_n.png
+         * lo que haria seria separar sprite y luego separar.png , de esta
+         * manera obteniendo hormiga_n
          */
-        String[] aux = s.split("/");
-        String[] aux2 = aux[1].split(".png");
-        id = aux2[0];
+        id = s.split("/")[1].split(".png")[0];
 
         try {
             img = ImageIO.read(new File(s));

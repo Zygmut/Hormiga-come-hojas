@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Administracion del tablero 
  */
 package Lahormigacomehojas;
 
@@ -35,6 +33,9 @@ public class Board extends JPanel {
             }
             y += Border;
         }
+        /**
+         * Poner la hormiga en una posicion aleatoria del tablero
+         */
         int hx = (int) (Math.random() * Dim);
         int hy = (int) (Math.random() * Dim);
         cBoard[hx][hy].setPiece(new Piece(Piece.hormigaN));
